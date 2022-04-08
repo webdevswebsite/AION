@@ -1,0 +1,570 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-progress-bar-linear
+include ../components/_ui-inline-subscribe-form
+
+block variables
+	- var activeCategory = 'home'
+	- var pageName = 'Home'
+
+block page
+	// Page Header
+	include ../sections/_header-creative
+
+	// Swiper
+	section.section.swiper-container.swiper-slider.swiper-slider-2#home(data-loop='true' data-autoplay='false' data-simulate-touch="false" data-slide-effect="fade")
+		.swiper-wrapper.text-center
+			.swiper-slide.context-dark(data-slide-bg='images/slider-9-1920x1328.jpg' style='background-position: 50% 50%')
+				.swiper-slide-caption
+					.container
+						.row.justify-content-lg-center
+							.col-md-12.col-xl-10
+								h1(data-caption-animate='fadeInUp' data-caption-delay='100') The Fastest Way to Send Money Worldwide
+								a.button.button-lg.button-primary(href='#myModal' data-toggle='modal' data-caption-animate='fadeInUp' data-caption-delay='450') Order Card
+
+			.swiper-slide.context-dark(data-slide-bg='images/slider-10-1920x1280.jpeg')
+				.swiper-slide-caption
+					.container
+						.row.justify-content-lg-center
+							.col-md-12.col-xl-10
+								h1(data-caption-animate='fadeInUp' data-caption-delay='100') Where You Know Your Banker and Your Banker Knows You
+								a.button.button-lg.button-primary(href='#myModal' data-toggle='modal' data-caption-animate='fadeInUp' data-caption-delay='450') Order Card
+
+			.swiper-slide.context-dark(data-slide-bg='images/slider-8-1920x1328.jpeg' style='background-position: 50% 50%')
+				.swiper-slide-caption
+					.container
+						.row.justify-content-lg-center
+							.col-md-12.col-xl-10
+								h1(data-caption-animate='fadeInUp' data-caption-delay='100') Our Quest to Make Banking Better Starts Here
+								a.button.button-lg.button-primary(href='#myModal' data-toggle='modal' data-caption-animate='fadeInUp' data-caption-delay='450') Order Card
+
+
+		.swiper-meta
+			ul.links 
+				li: a.icon.icon-meta.mdi.mdi-facebook(href="#")
+				li: a.icon.icon-meta.mdi.mdi-twitter(href="#")
+				li: a.icon.icon-meta.mdi.mdi-instagram(href="#")
+				li: a.icon.icon-meta.mdi.mdi-facebook-messenger(href="#")
+				li: a.icon.icon-meta.mdi.mdi-linkedin(href="#")
+				li: a.icon.icon-meta.mdi.mdi-snapchat(href="#")
+
+			.contacts
+				.icon.mdi.mdi-cellphone-iphone
+				.tel: a(href="tel:#") 1-800-1234-567
+				.request: a(href="#") Request a Call Back
+
+			// Swiper Pagination
+			.swiper-pagination
+
+	// Advantages
+	section.section.context-dark
+		.row.row-flex.no-gutters
+			.col-md-6.col-lg-3
+				.blurb-boxed-2
+					.icon.mdi.mdi-credit-card-multiple
+					h6.title More than #[span.font-weight-bold 23 754] Issued Cards
+					p.exeption Our bank is an acknowledged leader in credit card distribution. We issue more than 5000 cards every year.
+
+			.col-md-6.col-lg-3
+				.blurb-boxed-2.blurb-boxed-dark
+					.icon.linearicons-wallet
+					h6.title Up to #[span.font-weight-bold 30%] Cashback
+					p.exeption We offer an amazing amount of cashback for payments made with one of our credit cards - Blue, Green, or Orange.
+
+			.col-md-6.col-lg-3
+				.blurb-boxed-2.blurb-boxed-darker
+					.icon.mdi.mdi-credit-card-multiple
+					h6.title Up to #[span.font-weight-bold 25%] for Deposits
+					p.exeption Bank Progress offers various deposits in all international currencies with interest rate up to 25% for all regular clients.
+
+			.col-md-6.col-lg-3
+				.blurb-boxed-2.blurb-boxed-darkest
+					p.exeption The Best Choice 2018
+					h5.title Reliable and Secure Credit Cards and Deposits for You
+					a.button.button-lg.button-icon.button-icon-left.button-primary(href="#")
+						span.icon.mdi.mdi-credit-card
+						| Order a Card
+
+
+	// A Few Words About Our Bank
+	section.section.section-lg.bg-gray-100#about
+		.container
+			.block-lg.text-center
+				h2 A Few Words About Our Bank
+				p Bank Progress was founded in 1999 to introduce the new level of financial services worldwide. We are still dedicated to the success of our clients, both individual and corporate.
+
+			.row.row-20.justify-content-center.justify-content-lg-between
+				.col-md-10.col-lg-6.wow.fadeIn
+					+jpg("index-1-2-570x379", "img-bordered")
+				.col-md-10.col-lg-6.col-xl-5
+					.text-block-2
+						p At Bank Progress, we are guided by a common purpose to help make financial lives better by connecting clients and communities to the resource they need to be successful. We are driving growth – helping to create jobs, develop communities, foster economic mobility and address society’s biggest challenges – while managing risk and providing a return to our clients and our shareholders.
+						.progress-linear-wrap
+							+progress-bar-linear({
+								title: "Financial Consulting",
+								valueTo: "75"
+							})
+							+progress-bar-linear({
+								title: "Online Reporting",
+								valueTo: "50"
+							})
+
+
+	// Financial Statistics
+	section.section.section-lg.bg-gray-dark
+		.container
+			h2.text-center Financial Statistics
+			.row.row-20.justify-content-center.justify-content-lg-between
+				.col-md-12.col-lg-4.wow.fadeIn
+					+blockquote({
+						quote: "At Bank Progress, we aim to provide top quality banking services to a greater number of individual and corporate customers than any other bank in the USA or abroad. Our clients value data privacy and security of their banking accounts 24/7.",
+						authorName: "Samuel Chapman",
+						authorPosition: "CEO & Founder of Bank Progress"
+					})
+				.col-md-8.col-lg-5.col-xxl-4.wow.fadeIn
+					+svg-gradient()
+					.d3-chart#spline-chart(style='width:100%; margin: 0 auto')
+					p With the development of online banking, our number of customers increased up to 6 million worldwide.
+				.col-md-4.col-lg-3.col-xxl-2
+					.row.row-fix.row-40
+						.col-6.col-md-12
+							.progress-bar-circle-wrap.text-center
+								.progress-bar-circle(data-value='0.5' data-gradient=colors.secondary data-empty-fill=colors.primary data-size='100' data-thickness='2')
+									span
+								p.progress-bar-circle-title Cashback
+						.col-6.col-md-12
+							.progress-bar-circle-wrap.text-center
+								.progress-bar-circle(data-value='1' data-gradient=colors.secondary data-empty-fill=colors.primary data-size='100' data-thickness='2')
+									span
+								p.progress-bar-circle-title Guarantee
+
+	// The Best Banking Choise
+	section.section.section-lg#services
+		.container
+			.block-lg.text-center
+				h2 The Best Banking Choice
+				p Since our foundation, we have been #1 banking institution for lots of individual and corporate customers, both in the USA and internationally. We provide our clients with a number of benefits.
+
+			.row.row-30.row-xxl-60
+				.col-sm-6.col-md-4.wow.fadeInLeft
+					+blurb-image({
+						icon: "linearicons-map2",
+						title: "Various Locations",
+						exeption: "We have offices in many countries including the USA and the UK."
+					})
+				.col-sm-6.col-md-4.wow.fadeInLeft(data-wow-delay="0.1s")
+					+blurb-image({
+						icon: "linearicons-laptop-phone",
+						title: "Mobile Banking Apps",
+						exeption: "Get instant access to your account on any device using our banking apps."
+					})
+				.col-sm-6.col-md-4.wow.fadeInLeft(data-wow-delay="0.2s")
+					+blurb-image({
+						icon: "linearicons-group-work",
+						title: "Family & Friends Programs",
+						exeption: "Our Bank has special programs with benefits for family members."
+					})
+				.col-sm-6.col-md-4.wow.fadeInLeft(data-wow-delay="0.1s")
+					+blurb-image({
+						icon: "linearicons-headset",
+						title: "24/7 Support",
+						exeption: "Our Support team is always ready to help you solve any banking issues."
+					})
+				.col-sm-6.col-md-4.wow.fadeInLeft(data-wow-delay="0.2s")
+					+blurb-image({
+						icon: "linearicons-receipt",
+						title: "Personal Profile",
+						exeption: "Register your free personal profile online to begin using our services."
+					})
+				.col-sm-6.col-md-4.wow.fadeInLeft(data-wow-delay="0.3s")
+					+blurb-image({
+						icon: "linearicons-cog",
+						title: "Settings",
+						exeption: "Registered clients can edit the banking account settings in 2 clicks."
+					})
+	// Pricing
+	section.section.section-lg.bg-gray-100#pricing
+		.container.text-center
+			h2 Pricing
+			.row.no-gutters.justify-content-center
+				.col-md-4
+					+price-box-1({
+						imageName: "pricing-1-202x162",
+						title: "Basic",
+						exeption: "This option is perfect if you have no experience in online banking but would like to have a card for all kinds of payments in selected currencies.",
+						price: "Free"
+					})
+				.col-md-4
+					+price-box-1({
+						boxClass: "price-box-1-primary",
+						imageName: "pricing-2-202x162",
+						title: "Standard",
+						exeption: "This offer provides you with extended support for your financial needs and is able to cover the needs of individual and business clients.",
+						price: "$99.00/mo"
+					})
+				.col-md-4
+					+price-box-1({
+						imageName: "pricing-3-202x162",
+						title: "Premium",
+						exeption: "This card from Bank Progress proved to be a great financial solution for big companies and international enterprises worldwide.",
+						price: "$199.00/mo"
+					})
+
+
+
+	// How to Order a New Card
+	section.section.section-lg
+		.container.text-center
+			h2 How to Order a New Card
+			.row.row-40.justify-content-center.number-counter
+				.col-sm-6.col-lg-3.wow.fadeInLeft
+					+blurb-icon-filled({
+						icon: "linearicons-register",
+						title: "Online Registration",
+						exeption: "Everything starts with free online registration. Only basic data is needed - name, surname, age etc."
+					})
+
+				.col-sm-6.col-lg-3.wow.fadeInLeft(data-wow-delay="0.1s")
+					+blurb-icon-filled({
+						icon: "linearicons-menu3",
+						title: "Filling Out a Form",
+						exeption: "After the basic registration, you will need to fill out a form to help us determine your financial goals."
+					})
+
+				.col-sm-6.col-lg-3.wow.fadeInLeft(data-wow-delay="0.2s")
+					+blurb-icon-filled({
+						icon: "linearicons-check",
+						title: "Signing an Agreement",
+						exeption: "This stage concludes the procedure of opening an account at Bank Progress to start using your card."
+					})
+
+				.col-sm-6.col-lg-3.wow.fadeInLeft(data-wow-delay="0.3s")
+					+blurb-icon-filled({
+						icon: "linearicons-credit-card",
+						title: "Using Your Card",
+						exeption: "You can use your card to purchase the products you need or to open a secure deposit with lots of benefits."
+					})
+
+	// Call to action
+	section.section.section-xs.bg-primary-gradient
+		.container
+			.box-cta
+				.box-cta-inner
+					h3 Choose Your #[span.font-weight-bold Bank Card] Now!
+				.box-cta-inner
+					a.button.button-lg.button-primary-dark(href='#myModal' data-toggle='modal') Order Card
+
+	// Testimonials
+	section.section.section-lg.bg-gray-100#testimonials
+		.container.text-center
+			h2 Testimonials
+			// Owl Carousel
+			.owl-carousel.text-left(data-items='1', data-md-items='2', data-dots='true' data-nav='false' data-stage-padding='0', data-loop='false', data-margin='30', data-mouse-drag="false", data-autoplay="true")
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "I choose Bank Progress because I know they share my values of putting community first. Not only do they make banking easy, I see them out volunteering and investing in our community.",
+					imageName: "user-1-64x64",
+					authorName: "Marie Hanson",
+					authorPosition: "Charity Organization Manager"
+				})
+
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "When I needed financial assistance to expand my shop, I went directly to Bank Progress. Securing financing helped us renovate and expand my jewelry shop and attract more clients.",
+					imageName: "user-2-64x64",
+					authorName: "Mildred Bates",
+					authorPosition: "Jewelry Shop Owner"
+				})
+
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "I choose Bank Progress because I know they share my values of putting community first. Not only do they make banking easy, I see them out volunteering and investing in our community.",
+					imageName: "user-1-64x64",
+					authorName: "Marie Hanson",
+					authorPosition: "Charity Organization Manager"
+				})
+
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "When I needed financial assistance to expand my shop, I went directly to Bank Progress. Securing financing helped us renovate and expand my jewelry shop and attract more clients.",
+					imageName: "user-2-64x64",
+					authorName: "Mildred Bates",
+					authorPosition: "Jewelry Shop Owner"
+				})
+
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "I choose Bank Progress because I know they share my values of putting community first. Not only do they make banking easy, I see them out volunteering and investing in our community.",
+					imageName: "user-1-64x64",
+					authorName: "Marie Hanson",
+					authorPosition: "Charity Organization Manager"
+				})
+
+				+blockquote-boxed({
+					time: "2 days ago",
+					quote: "When I needed financial assistance to expand my shop, I went directly to Bank Progress. Securing financing helped us renovate and expand my jewelry shop and attract more clients.",
+					imageName: "user-2-64x64",
+					authorName: "Mildred Bates",
+					authorPosition: "Jewelry Shop Owner"
+				})
+
+	// Frequently Asked Questions
+	section.section.section-lg
+		.container.text-center
+			h2 Frequently Asked Questions
+			.row.row-flex.row-40.number-counter.text-left
+				.col-sm-12.col-lg-4.wow.fadeIn
+					.text-block-lined
+						h5.title What is the currency amount for the Blue Card?
+						p The minimum amount that can be loaded on the card is $100 or equivalent amount in other currency. The maximum amount would be as per Bank Progress guidelines applicable from time to time. You can learn more about it by contacting our consultants using the form on our website or by calling us directly.
+						h5.title What steps do I take if my card gets lost?
+						p If you lose your card please immediately contact our customer support center so that we could issue a new one as fast as possible.
+
+				.col-sm-12.col-lg-4.wow.fadeIn
+					.text-block-lined
+						h5.title Do I have to maintain any minimum balance?
+						p It depends on the card you choose. For example, if you pick an Orange Card, you get a special waiver on the minimum balance requirement.
+						h5.title What security features does the mobile banking have?
+						p Mobile browser-based banking is very similar to PC based internet banking. The respective mobile handset browser replaces a PC browser to access the banking services. Some of the important security measures in place are 128 bit SSL from VeriSign, https:// based access etc.
+
+				.col-sm-12.col-lg-4.wow.fadeIn
+					.text-block-lined
+						h5.title What kind of browser do I need for online banking?
+						p Our Banking System supports all browsers. Some of the most popular ones are Chrome, Opera, Firefox, and Safari. If you are using Internet Explorer make sure the version of your browser is 9.0 or higher.
+						h5.title Can I make online payments to foreign recipients?
+						p Yes, you can! Our bank does not limit any payments to a certain country so whether you are using our online banking system or an app for your device, you can safely transfer any amount of money or purchase services and products.
+
+			.button-wrap-lg
+				a.button.button-lg.button-primary(href="#") View All Asked Questions
+
+	// Call to action
+	section.section.section-xs.bg-primary-gradient
+		.container
+			.box-cta
+				.box-cta-inner
+					h3 Choose Your #[span.font-weight-bold Bank Card] Now!
+				.box-cta-inner
+					a.button.button-lg.button-primary-dark(href='#myModal' data-toggle='modal') Order Card
+	// Latest Blog Posts
+	section.section.section-lg.bg-gray-100
+		.container.text-center
+			h2 Latest Blog Posts
+			.row.row-flex.row-40.justify-content-center.number-counter.text-left.wow.fadeInUp
+				.col-sm-6.col-lg-3
+					+post-classic-2(
+					{
+						imageName: "masonry-blog-1-370x240",
+						title: "7 Banking Services That Can Save Retirees Money",
+						link: "#",
+						exeption: "Long gone are the days in which you need to visit a branch to do your banking. Today, banks offer an array of services..."
+					},
+					{
+						date: "2 days ago",
+						author: "Martha Ryan",
+						authorLink: "#"
+					},
+
+					[{"title": "News", "href": "#"}]
+					)
+
+				.col-sm-6.col-lg-3
+					+post-classic-2(
+					{
+						imageName: "masonry-blog-3-370x240",
+						title: "Stocks Could Surge Another 10% Between Now And 2019",
+						link: "#",
+						exeption: "Experts point out that the next couple of months could become bumpy as the markets deal with uncertainty over factors such as tax reform, which is..."
+					},
+					{
+						date: "2 days ago",
+						author: "Lawrence Kelly",
+						authorLink: "#"
+					},
+
+					[{"title": "News", "href": "#"}]
+					)
+
+				.col-sm-6.col-lg-3
+					+post-classic-2(
+					{
+						imageName: "masonry-blog-5-370x240",
+						title: "Wall Street Analysts Are Nailing It This Year",
+						link: "#",
+						exeption: "Wall Street analysts have made the right calls so far this year. Analysts' 50 most loved stocks at the start of the year are..."
+					},
+					{
+						date: "2 days ago",
+						author: "Theresa Simpson",
+						authorLink: "#"
+					},
+
+					[{"title": "News", "href": "#"}]
+					)
+
+				.col-sm-6.col-lg-3
+					+post-classic-2(
+					{
+						imageName: "masonry-blog-2-370x240",
+						title: "Cash Faces a New Challenger in Zelle, a Mobile Banking Service",
+						link: "#",
+						exeption: "After six years of laying a foundation, major banks are ready to introduce Zelle, a digital..."
+					},
+					{
+						date: "2 days ago",
+						author: "Lawrence Kelly",
+						authorLink: "#"
+					},
+
+					[{"title": "News", "href": "#"}]
+					)
+
+
+
+
+
+
+	section.section.section-lg.bg-default#contact
+		.container
+			.row.row-50.justify-content-between
+				.col-md-6.col-lg-4.col-xl-3
+					// Bootstrap tabs
+					#tabs-1.tabs-custom.tabs-horizontal.tabs-line
+						// Nav tabs
+						ul.nav.nav-tabs
+							li.nav-item(role='presentation'): a.nav-link.active(href='#tabs-1-1' data-toggle='tab') San Diego
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-2' data-toggle='tab') New York
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-1-3' data-toggle='tab') Chicago
+
+						// Tab panes
+						.tab-content
+							div#tabs-1-1.tab-pane.fade.show.active
+								ul.contact-box
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-map-marker
+											.unit-body
+												a.hover-text(href="#") 2130 Fulton Street, <br class="veil reveal-lg-inline">San Diego, CA 94117-1080 USA
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-phone
+											.unit-body
+												ul.list-phones
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-email-outline
+											.unit-body
+												a.hover-text(href="mailto:#") info@demolink.org
+
+							div#tabs-1-2.tab-pane.fade
+								ul.contact-box
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-map-marker
+											.unit-body
+												a.hover-text(href="#") 2130 Marshall Street, <br class="veil reveal-lg-inline">New York, NY 65432-8767 USA
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-phone
+											.unit-body
+												ul.list-phones
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-email-outline
+											.unit-body
+												a.hover-text(href="mailto:#") info@demolink.org
+
+							div#tabs-1-3.tab-pane.fade
+								ul.contact-box
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-map-marker
+											.unit-body
+												a.hover-text(href="#") 5432 Central Street, <br class="veil reveal-lg-inline">Chicago, IL 43541-3243 USA
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-phone
+											.unit-body
+												ul.list-phones
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+													li: a.hover-text(href="tel:#") 1-800-1234-567
+									li
+										.unit.unit-horizontal.unit-spacing-xxs
+											.unit-left
+												span.icon.mdi.mdi-email-outline
+											.unit-body
+												a.hover-text(href="mailto:#") info@demolink.org
+					.group.group-middle.social-items
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-facebook(href='#')
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-twitter(href='#')
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-instagram(href='#')
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-facebook-messenger(href='#')
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-linkedin(href='#')
+						a.icon.icon-md.icon-gray-400.novi-icon.mdi.mdi-snapchat(href='#')
+
+				.col-md-6.col-lg-4
+					h4 Get in Touch
+					// RD Mailform
+					form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+						.form-wrap
+							input#contact-name.form-input(type='text' name='name' data-constraints='@Required')
+							label.form-label(for='contact-name') Name
+
+						.form-wrap
+							input#contact-email.form-input(type='email' name='email' data-constraints='@Email @Required')
+							label.form-label(for='contact-email') E-mail
+
+						.form-wrap
+							label.form-label(for='contact-message') Message
+							textarea#contact-message.form-input(name='message' data-constraints='@Required')
+
+						button.button.button-primary(type='submit') Send
+				.col-md-12.col-lg-3
+					.google-map-container(data-center='9870 St Vincent Place, Glasgow, DC 45 Fr 45.', data-zoom="14", data-icon='images/gmap_marker.png', data-icon-active='images/gmap_marker_active.png', data-styles="[{\"featureType\": \"all\",\"elementType\": \"labels.text.fill\",\"stylers\": [{\"saturation\": 36},{\"color\": \"#333333\"},{\"lightness\": 40}]},{\"featureType\": \"all\",\"elementType\": \"labels.text.stroke\",\"stylers\": [{\"visibility\": \"on\"},{\"color\": \"#ffffff\"},{\"lightness\": 16}]},{\"featureType\": \"all\",\"elementType\": \"labels.icon\",\"stylers\": [{\"visibility\": \"off\"}]},{\"featureType\": \"administrative\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#fefefe\"},{\"lightness\": 20}]},{\"featureType\": \"administrative\",\"elementType\": \"geometry.stroke\",\"stylers\": [{\"color\": \"#fefefe\"},{\"lightness\": 17},{\"weight\": 1.2}]},{\"featureType\": \"landscape\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#f5f5f5\"},{\"lightness\": 20}]},{\"featureType\": \"landscape\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#d5d5d5\"}]},{\"featureType\": \"landscape.man_made\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#7574c0\"},{\"saturation\": \"-37\"},{\"lightness\": \"75\"}]},{\"featureType\": \"poi\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#f5f5f5\"},{\"lightness\": 21}]},{\"featureType\": \"poi.business\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#7574c0\"},{\"saturation\": \"-2\"},{\"lightness\": \"53\"}]},{\"featureType\": \"poi.park\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#dedede\"},{\"lightness\": 21}]},{\"featureType\": \"poi.park\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#7574c0\"},{\"lightness\": \"69\"}]},{\"featureType\": \"road.highway\",\"elementType\": \"geometry.fill\",\"stylers\": [{\"color\": \"#7574c0\"},{\"lightness\": \"25\"}]},{\"featureType\": \"road.highway\",\"elementType\": \"geometry.stroke\",\"stylers\": [{\"color\": \"#ffffff\"},{\"lightness\": 29},{\"weight\": 0.2}]},{\"featureType\": \"road.highway\",\"elementType\": \"labels.text.fill\",\"stylers\": [{\"lightness\": \"38\"},{\"color\": \"#000000\"}]},{\"featureType\": \"road.arterial\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#ffffff\"},{\"lightness\": 18}]},{\"featureType\": \"road.local\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#ffffff\"},{\"lightness\": 16}]},{\"featureType\": \"transit\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#f2f2f2\"},{\"lightness\": 19}]},{\"featureType\": \"water\",\"elementType\": \"geometry\",\"stylers\": [{\"color\": \"#e9e9e9\"},{\"lightness\": 17}]}]")
+						.google-map
+						ul.google-map-markers
+							li(data-location='9870 St Vincent Place, Glasgow, DC 45 Fr 45.', data-description='9870 St Vincent Place, Glasgow')
+
+	// Page Footer
+	include ../sections/_footer-2
+
+
+
+	// Modal
+	#myModal.modal.fade(tabindex='-1', role='dialog', )
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header 
+					
+					h4.modal-title Order Card
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') &times;
+				.modal-body.bg-default
+					form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+						.form-wrap
+							input#contact-name1.form-input(type='text' name='name' data-constraints='@Required')
+							label.form-label(for='contact-name1') Name
+
+						.form-wrap
+							input#contact-email1.form-input(type='email' name='email' data-constraints='@Email @Required')
+							label.form-label(for='contact-email1') E-mail
+
+						.form-wrap
+							label.form-label(for='contact-phone1') Phone
+							input#contact-phone1.form-input(type='text' name='phone' data-constraints='@Required @PhoneNumber')
+							
+
+						button.button.button-primary(type='submit') Send
+				
